@@ -320,7 +320,7 @@ class Worker():
         skuId = self.find_sizes(ids[0])
         self.find_tokens()
         
-        for i in range(10):
+        while 1:
             state = self.get_state(ids)
             print(state,datetime.now())
             if state == 'ACCEPTING_ENTRIES':
@@ -340,13 +340,7 @@ class Worker():
             time.sleep(1)
 
 w = Worker()
-# while 1:
-#     if (not '/launch?s=upcoming' in w.driver.current_url and
-#             not '/launch?s=in-stock' in w.driver.current_url):
-#         w.product_url = w.driver.current_url
-#         w.country_from_url(w.driver.current_url)
-#         break
-# w.get_user_details()
+
 def do_stuff():
     w.s = w.create_session()
     ids = w.get_product_id_from_url()
@@ -357,5 +351,5 @@ def do_stuff():
 
 #do_stuff()
 #w.driver.quit()
-# print(w.get_state(ids))
+#print(w.get_state(ids))
         
